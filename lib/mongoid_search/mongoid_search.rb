@@ -123,7 +123,7 @@ module Mongoid::Search
     end
 
     def set_keywords
-      self._keywords = Mongoid::Search::Util.keywords(self, self.search_fields).
+      self[:_keywords] = Mongoid::Search::Util.keywords(self, self.search_fields).
         flatten.reject{|k| k.nil? || k.empty?}.uniq.sort
     end
 end
